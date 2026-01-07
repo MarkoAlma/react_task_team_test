@@ -3,7 +3,7 @@ import React from 'react'
 export const AddTask = () => {
   return (
     <div>
-      addTask....
+      <h3>Új task hozzáadása</h3>
     </div>
   )
 }
