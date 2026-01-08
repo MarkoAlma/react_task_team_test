@@ -12,6 +12,8 @@ const handleDelete = ()=> {
     setTasks(tomb)
 }
 const handleEdit = ()=> {
+    console.log("edit");
+    
     setIsEditing(true)
 }
 const handleSave = ()=> {
