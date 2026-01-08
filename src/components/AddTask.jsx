@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-export const AddTask = ({setTask}) => {
+export const AddTask = ({setTasks}) => {
   const [text,setText]=useState("")
   const [assignedTo,setAssignedTo]=useState("")
 
@@ -9,7 +9,7 @@ export const AddTask = ({setTask}) => {
     e.preventDefault()
     if(!text || ! assignedTo) return;
     const newTask={id:Date.now(),text, assignedTo,completed:false}
-    setTask(prev=>[...prev,newTask])
+    setTasks(prev=>[...prev,newTask])
     setText("")
     setAssignedTo("")
   }

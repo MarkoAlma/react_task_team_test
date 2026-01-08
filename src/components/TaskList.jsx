@@ -5,7 +5,7 @@ const TaskList = ({tasks, setTasks}) => {
   return (
     <div>
       {tasks.map((obj)=>
-        <TaskItem {...obj} />
+        <TaskItem key={obj.id} {...obj} />
     )}
     </div>
   )
