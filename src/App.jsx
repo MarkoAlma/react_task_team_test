@@ -11,7 +11,9 @@ function App() {
     <>
       ALMA
       <AddTask setTasks={setTasks}/>
-      <TaskList tasks={tasks} setTasks={setTasks}/>
+      <div style={{display:'flex',}}>
+        <TaskList tasks={tasks} setTasks={setTasks}/>
+      </div>
     </>
   )
 }
