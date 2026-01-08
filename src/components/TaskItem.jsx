@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import '../tasklist.css'
 
 const TaskItem = ({id, text, completed, assignedTo, tasks, setTasks}) => {
 
@@ -22,21 +23,43 @@ const handleSave = ()=> {
     setTasks(tomb)
 }
   return (
-    <div>
-        <li style={{display:'flex'}}  key={id}>
-            <input type="checkbox" name="" id="" checked={checked} onChange={e => setChecked(e.target.checked)}/>
-            {!isEditing ?
-                <span style={{textDecoration: checked ? 'line-through':'none'}}>{text}
-            (Felelős: {assignedTo})</span> :
-            <span>
-                <input type="text" name="" id="" value={feladat} onChange={e => setFeladat(e.target.value)}/>
-                <input type="text" name="" id="" value={ki} onChange={e => setKi(e.target.value)}/>
-            </span>
-            }
-            {!isEditing ? <input type="button" value="Szerkesztés" onClick={()=>handleEdit()}/> : <input type="button" value="Mentés" onClick={()=>handleSave()}/>}
-            <input type="button" value="Törlés" onClick={handleDelete}/>
-        </li>
-    </div>
+<div className={`task-card ${checked ? 'done' : ''} ${isEditing ? 'editing' : ''}`}>
+  <div className="task-left">
+    <label className="neo-checkbox">
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={e => setChecked(e.target.checked)}
+      />
+      <span></span>
+    </label>
+  </div>
+
+  <div className="task-center">
+    {!isEditing ? (
+      <>
+        <div className="task-title">{text}</div>
+        <div className="task-owner">👤 {assignedTo}</div>
+      </>
+    ) : (
+      <div className="task-edit">
+        <input value={feladat} onChange={e => setFeladat(e.target.value)} />
+        <input value={ki} onChange={e => setKi(e.target.value)} />
+      </div>
+    )}
+  </div>
+
+  <div className="task-actions">
+    {!isEditing ? (
+      <button onClick={handleEdit}>✏️</button>
+    ) : (
+      <button onClick={handleSave}>💾</button>
+    )}
+    <button onClick={handleDelete}>🗑</button>
+  </div>
+</div>
+
+
   )
 }
 
