@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       ALMA
-      <AddTask/>
+      <AddTask setTasks={setTasks}/>
       <TaskList tasks={tasks} setTasks={setTasks}/>
     </>
   )
