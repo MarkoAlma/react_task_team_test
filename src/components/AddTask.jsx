@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import './AddTask.css'
 
 export const AddTask = ({setTasks}) => {
   const [text,setText]=useState("")
@@ -17,7 +18,7 @@ export const AddTask = ({setTasks}) => {
   return (
     <div>
       <h3>Új teendő hozzáadása</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='add-task-form'>
         <input type="text" placeholder='új task...' value={text} onChange={(e)=>setText(e.target.value)} />
         <input type="text" placeholder='fejlesztő neve...' value={assignedTo} onChange={(e)=>setAssignedTo(e.target.value)} />
         <button type="submit">Hozzáadás</button>
