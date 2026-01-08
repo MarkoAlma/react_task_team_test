@@ -15,7 +15,9 @@ const handleEdit = ()=> {
     setIsEditing(true)
 }
 const handleSave = ()=> {
-    setIsEditing(true)
+    let tomb = tasks.map((obj)=> obj.id == id ? {id, text:feladat, assignedTo:ki, completed} : obj)
+    setIsEditing(false)
+    setTasks(tomb)
 }
   return (
     <div>
